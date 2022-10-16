@@ -35,5 +35,20 @@ public class World {
         Direction dir[] = change(args);
         run(dir);
         out.println("Stop");
+        Vector2d position1 = new Vector2d(1,2);
+        System.out.println(position1);
+        Vector2d position2 = new Vector2d(-2,1);
+        System.out.println(position2);
+        System.out.println(position1.add(position2));
+        System.out.println(position1.subtract(position2));
+        System.out.println(position1.upperRight(position2));
+        System.out.println(position1.lowerLeft(position2));
+        System.out.println(position1.opposite());
+        System.out.println(position1.equals(position2));
+        System.out.println(MapDirection.NORTH.toString());
+        System.out.println(MapDirection.NORTH.next());
+        System.out.println(MapDirection.NORTH.previous());
+        System.out.println(MapDirection.NORTH.toUnitVector());
+
     }
 }
