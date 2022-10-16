@@ -10,53 +10,43 @@ public class Vector2d {
     }
 
     public String toString() {
-        String position = "(" + Integer.toString(this.x) + "," + Integer.toString(this.y) + ")";
-        return position;
+        return "(" + this.x + ", " + this.y + ")";
     }
 
     public boolean precedes(Vector2d other) {
-        if (this.x <= other.x && this.y <= other.y) {
-            return true;
-        }
-        else {
+        if (other == null) {
             return false;
         }
+        return this.x <= other.x && this.y <= other.y;
 
     }
 
     public boolean follows(Vector2d other) {
-        if (this.x >= other.x && this.y >= other.y) {
-            return true;
-        }
-        else {
+        if (other == null) {
             return false;
         }
+        return this.x >= other.x && this.y >= other.y;
 
     }
 
     Vector2d add(Vector2d other) {
-        Vector2d newVector1 = new Vector2d(this.x + other.x, this.y + other.y);
-        return newVector1;
+        return new Vector2d(this.x + other.x, this.y + other.y);
     }
 
     Vector2d subtract(Vector2d other) {
-        Vector2d newVector2 = new Vector2d(this.x - other.x, this.y - other.y);
-        return newVector2;
+        return new Vector2d(this.x - other.x, this.y - other.y);
     }
 
     Vector2d upperRight(Vector2d other) {
-        Vector2d newVector3 = new Vector2d(Math.max(this.x, other.x), Math.max(this.y, other.y));
-        return newVector3;
+        return new Vector2d(Math.max(this.x, other.x), Math.max(this.y, other.y));
     }
 
     Vector2d lowerLeft(Vector2d other) {
-        Vector2d newVector4 = new Vector2d(Math.min(this.x, other.x), Math.min(this.y, other.y));
-        return newVector4;
+        return new Vector2d(Math.min(this.x, other.x), Math.min(this.y, other.y));
     }
 
     Vector2d opposite() {
-        Vector2d newVector5 = new Vector2d(-this.x, -this.y);
-        return newVector5;
+        return new Vector2d(-this.x, -this.y);
     }
 
     public boolean equals(Object other){

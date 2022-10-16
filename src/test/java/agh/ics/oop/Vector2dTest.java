@@ -20,8 +20,8 @@ public class Vector2dTest {
     }
     @Test
     void testPrecedes() {
-        assertTrue(checkVector1.precedes(checkVector2));
-        assertFalse(checkVector2.precedes(checkVector1));
+        assertFalse(checkVector1.precedes(checkVector2));
+        assertTrue(checkVector2.precedes(checkVector1));
     }
     @Test
     void testFollows() {
@@ -30,28 +30,28 @@ public class Vector2dTest {
     }
     @Test
     void testUpperRight() {
-        assertSame(checkVector4.upperRight(checkVector2), new Vector2d(10, 10));
-        assertNotSame(checkVector4.upperRight(checkVector2), new Vector2d(-4, -3));
+        assertEquals(checkVector4.upperRight(checkVector2), new Vector2d(10, 10));
+        assertNotEquals(checkVector4.upperRight(checkVector2), new Vector2d(-4, -3));
     }
     @Test
     void testLowerLeft() {
-        assertNotSame(checkVector4.lowerLeft(checkVector2), new Vector2d(10, 10));
+        assertNotEquals(checkVector4.lowerLeft(checkVector2), new Vector2d(10, 10));
         assertEquals(checkVector4.lowerLeft(checkVector2), new Vector2d(-4, -3));
     }
     @Test
     void testAdd() {
-        assertNotSame(checkVector2.add(checkVector3), new Vector2d(10, 10));
-        assertSame(checkVector2.add(checkVector3), new Vector2d(-5, 2));
+        assertNotEquals(checkVector2.add(checkVector3), new Vector2d(10, 10));
+        assertEquals(checkVector2.add(checkVector3), new Vector2d(-5, 2));
     }
     @Test
     void testSubtract() {
-        assertSame(checkVector2.subtract(checkVector3), new Vector2d(-3, -8));
-        assertNotSame(checkVector2.subtract(checkVector3), new Vector2d(-5, 2));
+        assertEquals(checkVector2.subtract(checkVector3), new Vector2d(-3, -8));
+        assertNotEquals(checkVector2.subtract(checkVector3), new Vector2d(-5, 2));
     }
     @Test
     void testOpposite() {
-        assertNotSame(checkVector2.opposite(), new Vector2d(-3, -4));
-        assertSame(checkVector3.opposite(), new Vector2d(1, -5));
+        assertNotEquals(checkVector2.opposite(), new Vector2d(-3, -4));
+        assertEquals(checkVector3.opposite(), new Vector2d(1, -5));
     }
 
 }
