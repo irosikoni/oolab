@@ -6,8 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="95000764-fd33-4ef2-a275-ad34588e3952" name="Changes" comment="lab2 fixed">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/agh/ics/oop/Vector2d.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/agh/ics/oop/Vector2d.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/agh/ics/oop/Vector2dTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/agh/ics/oop/Vector2dTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/agh/ics/oop/MapDirection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/agh/ics/oop/MapDirection.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -186,9 +185,9 @@
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.Vector2dTest" />
+        <item itemvalue="Gradle.MapDirectionTest" />
         <item itemvalue="Gradle.Vector2dTest.testPrecedes" />
         <item itemvalue="Gradle.Vector2dTest.testEquals" />
-        <item itemvalue="Gradle.MapDirectionTest" />
         <item itemvalue="Gradle.MapDirectionTest.testPrevious" />
       </list>
     </recent_temporary>
@@ -237,7 +236,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665909018016</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="lab2 fixed">
+      <created>1665910427268</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1665910427268</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
