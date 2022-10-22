@@ -1,5 +1,11 @@
 package agh.ics.oop;
 
+// Mechanizm zapobiegający pojawieniu się dwóch zwierząt w tym samym miejscu można
+// zaimplementować poprzez zaimplementowanie tablicy wartości bool,
+// które będą mówić, czy na danym polu stoi już jakieś zwierze, czy nie
+// i sprawdzaniu jej przed ruchem zwierzęcia.
+
+
 public class Animal {
     private MapDirection orientation = MapDirection.NORTH;
     private Vector2d position = new Vector2d(2, 2) {

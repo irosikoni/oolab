@@ -4,12 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="95000764-fd33-4ef2-a275-ad34588e3952" name="Changes" comment="lab3 started">
-      <change afterPath="$PROJECT_DIR$/src/main/java/agh/ics/oop/OptionsParser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/agh/ics/oop/AnimalTest.java" afterDir="false" />
+    <list default="true" id="95000764-fd33-4ef2-a275-ad34588e3952" name="Changes" comment="lab3 finished">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/agh/ics/oop/Animal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/agh/ics/oop/Animal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/agh/ics/oop/Vector2d.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/agh/ics/oop/Vector2d.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/agh/ics/oop/World.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/agh/ics/oop/World.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/agh/ics/oop/AnimalTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/agh/ics/oop/AnimalTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -269,7 +269,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666016932598</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="lab3 first ver">
+      <created>1666440522253</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1666440522253</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -292,7 +299,9 @@
     <MESSAGE value="lab2 fixed" />
     <MESSAGE value="lab2 final fixes" />
     <MESSAGE value="lab3 started" />
-    <option name="LAST_COMMIT_MESSAGE" value="lab3 started" />
+    <MESSAGE value="lab3 first ver" />
+    <MESSAGE value="lab3 finished" />
+    <option name="LAST_COMMIT_MESSAGE" value="lab3 finished" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

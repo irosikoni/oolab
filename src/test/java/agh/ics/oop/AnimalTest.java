@@ -1,7 +1,6 @@
 package agh.ics.oop;
 import org.junit.jupiter.api.Test;
 
-import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -18,16 +17,18 @@ public class AnimalTest {
                                            {MoveDirection.BACKWARD, MoveDirection.BACKWARD, MoveDirection.LEFT, MoveDirection.FORWARD}
                                 };
 
-    String[][] BAD_MAP_TESTS = { {"f", "f", "f", "r", "f"},
-                                 {"forward", "forward", "f", "f", "b", "b", "backward", "b", "backward", "f", "f", "r"},
-                                 {"r", "f", "l", "f", "l", "f", "f", "l", "f", "f", "r", "f", "f"}
+    String[][] BAD_MAP_TESTS = { {"f", "f", "f", "f"},
+                                 {"r", "f", "f", "f"},
+                                 {"l", "f", "f", "f"},
+                                 {"b", "b", "b", "b"}
 
     };
-    String[] BAD_MAP_RESULT = {"(3, 4), Wschód", "(2, 2), Wschód", "(0, 1), Zachód"};
-    Vector2d[] BAD_MAP_POSITION = {new Vector2d(3, 4), new Vector2d(2, 2), new Vector2d(0, 1)};
-    MoveDirection[][] BAD_MAP_DIRECTIONS = { {MoveDirection.FORWARD, MoveDirection.FORWARD, MoveDirection.FORWARD, MoveDirection.RIGHT, MoveDirection.FORWARD},
-                                             {MoveDirection.FORWARD, MoveDirection.FORWARD, MoveDirection.FORWARD, MoveDirection.FORWARD, MoveDirection.BACKWARD, MoveDirection.BACKWARD, MoveDirection.BACKWARD, MoveDirection.BACKWARD, MoveDirection.BACKWARD, MoveDirection.FORWARD, MoveDirection.FORWARD, MoveDirection.RIGHT},
-                                             {MoveDirection.RIGHT, MoveDirection.FORWARD, MoveDirection.LEFT, MoveDirection.FORWARD, MoveDirection.LEFT, MoveDirection.FORWARD, MoveDirection.FORWARD, MoveDirection.LEFT, MoveDirection.FORWARD, MoveDirection.FORWARD, MoveDirection.RIGHT, MoveDirection.FORWARD, MoveDirection.FORWARD}
+    String[] BAD_MAP_RESULT = {"(2, 4), Północ", "(4, 2), Wschód", "(0, 2), Zachód", "(2, 0), Północ"};
+    Vector2d[] BAD_MAP_POSITION = {new Vector2d(2, 4), new Vector2d(4, 2), new Vector2d(0, 2), new Vector2d(2, 0)};
+    MoveDirection[][] BAD_MAP_DIRECTIONS = { {MoveDirection.FORWARD, MoveDirection.FORWARD, MoveDirection.FORWARD, MoveDirection.FORWARD},
+                                             {MoveDirection.RIGHT, MoveDirection.FORWARD, MoveDirection.FORWARD, MoveDirection.FORWARD},
+                                             {MoveDirection.LEFT, MoveDirection.FORWARD, MoveDirection.FORWARD, MoveDirection.FORWARD},
+                                             {MoveDirection.BACKWARD, MoveDirection.BACKWARD, MoveDirection.BACKWARD, MoveDirection.BACKWARD}
     };
 
     String[][] BAD_STRING_TESTS = { {"f", "f", "krzysiek", "l", "l", "pula", "f"},
@@ -47,52 +48,52 @@ public class AnimalTest {
     @Test
     void testBasic() {
         for (int i = 0; i < 3; i++) {
-            Animal zwierzak = new Animal();
+            Animal animal = new Animal();
             MoveDirection[] directions = OptionsParser.parse(BASIC_TESTS[i]);
             for (MoveDirection dir : directions) {
                 if (dir == null) break;
-                zwierzak.move(dir);
+                animal.move(dir);
             }
-            assertTrue(Arrays.equals(directions, BASIC_DIRECTIONS[i]));
-            assertTrue(zwierzak.isAt(BASIC_POSITION[i]));
-            assertTrue(zwierzak.toString().equals(BASIC_RESULT[i]));
+            assertArrayEquals(directions, BASIC_DIRECTIONS[i]);
+            assertTrue(animal.isAt(BASIC_POSITION[i]));
+            assertEquals(animal.toString(), BASIC_RESULT[i]);
 
         }
-    };
+    }
 
     //Testy sprawdzające, czy jeśli podamy ruchy, które w teorii wyprowadzają zwierzaka za mape,
-    // to czy zwierzak pozostanie w jej środku
+    // to czy zwierzak pozostanie w jej wnętrzu
     @Test
     void testBadMap() {
         for (int i = 0; i < 3; i++) {
-            Animal zwierzak = new Animal();
+            Animal animal = new Animal();
             MoveDirection[] directions = OptionsParser.parse(BAD_MAP_TESTS[i]);
             for (MoveDirection dir : directions) {
                 if (dir == null) break;
-                zwierzak.move(dir);
+                animal.move(dir);
             }
-            assertTrue(Arrays.equals(directions, BAD_MAP_DIRECTIONS[i]));
-            assertTrue(zwierzak.isAt(BAD_MAP_POSITION[i]));
-            assertTrue(zwierzak.toString().equals(BAD_MAP_RESULT[i]));
+            assertArrayEquals(directions, BAD_MAP_DIRECTIONS[i]);
+            assertTrue(animal.isAt(BAD_MAP_POSITION[i]));
+            assertEquals(animal.toString(), BAD_MAP_RESULT[i]);
 
         }
-    };
+    }
     //Testy sprawdzające, czy przy podaniu złych stringów do tablicy, zwierzak wciąż
     //będzie poruszał się prawidłowo
     @Test
     void testBadString() {
         for (int i = 0; i < 3; i++) {
-            Animal zwierzak = new Animal();
+            Animal animal = new Animal();
             MoveDirection[] directions = OptionsParser.parse(BAD_STRING_TESTS[i]);
             for (MoveDirection dir : directions) {
                 if (dir == null) break;
-                zwierzak.move(dir);
+                animal.move(dir);
             }
-            assertTrue(Arrays.equals(directions, BAD_STRING_DIRECTIONS[i]));
-            assertTrue(zwierzak.isAt(BAD_STRING_POSITION[i]));
-            assertTrue(zwierzak.toString().equals(BAD_STRING_RESULT[i]));
+            assertArrayEquals(directions, BAD_STRING_DIRECTIONS[i]);
+            assertTrue(animal.isAt(BAD_STRING_POSITION[i]));
+            assertEquals(animal.toString(), BAD_STRING_RESULT[i]);
 
         }
-    };
+    }
 
-};
+}

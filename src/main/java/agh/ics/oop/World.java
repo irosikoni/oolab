@@ -33,13 +33,11 @@ public class World {
     }
 
     public static void main(String[] args) {
-        Animal zwierze = new Animal();
+        Animal animal = new Animal();
         MoveDirection[] directions = OptionsParser.parse(args);
         for (MoveDirection dir : directions) {
             if (dir == null) break;
-            zwierze.move(dir);
+            animal.move(dir);
         }
-        System.out.println(zwierze);
-
     }
 }
