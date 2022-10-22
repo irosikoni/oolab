@@ -17,6 +17,7 @@ public class World {
         }
         return directions;
     }
+
     static void run(Direction[] args) {
         for (Direction move : args) {
             String message = switch (move) {
@@ -30,16 +31,14 @@ public class World {
 
         }
     }
+
     public static void main(String[] args) {
         Animal zwierze = new Animal();
-        System.out.println(zwierze);
-        zwierze.move(MoveDirection.RIGHT);
-        System.out.println(zwierze);
-        zwierze.move(MoveDirection.FORWARD);
-        System.out.println(zwierze);
-        zwierze.move(MoveDirection.FORWARD);
-        System.out.println(zwierze);
-        zwierze.move(MoveDirection.FORWARD);
+        MoveDirection[] directions = OptionsParser.parse(args);
+        for (MoveDirection dir : directions) {
+            if (dir == null) break;
+            zwierze.move(dir);
+        }
         System.out.println(zwierze);
 
     }
