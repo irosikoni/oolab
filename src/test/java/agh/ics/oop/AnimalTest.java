@@ -31,7 +31,7 @@ public class AnimalTest {
                                              {MoveDirection.BACKWARD, MoveDirection.BACKWARD, MoveDirection.BACKWARD, MoveDirection.BACKWARD}
     };
 
-    String[][] BAD_STRING_TESTS = { {"f", "f", "krzysiek", "l", "l", "pula", "f"},
+    String[][] BAD_STRING_TESTS = { {"f", "f", "Adam Barański", "l", "l", "pula", "f"},
                                     {"c", "right", "nowy", "forward", "left", "n", "forward"},
                                     {"nic nic", "backward", "backward", "l", "f", "pusto"}
     };
@@ -47,7 +47,7 @@ public class AnimalTest {
     // pozycja i orientacja są właściwe
     @Test
     void testBasic() {
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < BASIC_TESTS.length; i++) {
             Animal animal = new Animal();
             MoveDirection[] directions = OptionsParser.parse(BASIC_TESTS[i]);
             for (MoveDirection dir : directions) {
@@ -65,7 +65,7 @@ public class AnimalTest {
     // to czy zwierzak pozostanie w jej wnętrzu
     @Test
     void testBadMap() {
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < BAD_MAP_TESTS.length; i++) {
             Animal animal = new Animal();
             MoveDirection[] directions = OptionsParser.parse(BAD_MAP_TESTS[i]);
             for (MoveDirection dir : directions) {
@@ -82,7 +82,7 @@ public class AnimalTest {
     //będzie poruszał się prawidłowo
     @Test
     void testBadString() {
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < BAD_STRING_TESTS.length; i++) {
             Animal animal = new Animal();
             MoveDirection[] directions = OptionsParser.parse(BAD_STRING_TESTS[i]);
             for (MoveDirection dir : directions) {

@@ -4,7 +4,7 @@ import static java.lang.System.out;
 public class World {
     static Direction[] change(String[] args) {
         int n = args.length;
-        Direction directions[] = new Direction[n];
+        Direction[] directions = new Direction[n];
         for (int i = 0; i < n; i++) {
             Direction message = switch (args[i]) {
                 case "f" -> Direction.FORWARD;
