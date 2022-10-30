@@ -14,7 +14,7 @@ public class AnimalTest {
     };
     String[][] DIRECTIONS = {{"f", "b", "r", "l", "f", "f", "r", "r", "f", "f", "f", "f", "f", "f", "f", "f" },
             {"b", "f", "f", "l", "r", "f", "f", "f", "l", "l" },
-            {"b", "f", "f", "l", "r", "f", "f", "f", "l", "l" }
+            {"r", "f", "b", "f", "f", "l", "l", "f", "f", "f", "f", "f", "r", "f", "l", "f", "f", "f", "f", "f", "f", "l", "f", "f", "f"}
     };
 
     String[][] ORIENTATIONS = {{"S", "N" },
