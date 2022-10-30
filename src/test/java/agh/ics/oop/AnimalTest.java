@@ -12,12 +12,12 @@ public class AnimalTest {
             {new Vector2d(1, 4), new Vector2d(1, 1), new Vector2d(2, 1)},
             {new Vector2d(1, 2), new Vector2d(0, 0), new Vector2d(3, 3), new Vector2d(0, 0)}
     };
-    String[][] DIRECTIONS = {{"f", "b", "r", "l", "f", "f", "r", "r", "f", "f", "f", "f", "f", "f", "f", "f" },
-            {"b", "f", "f", "l", "r", "f", "f", "f", "l", "l" },
-            {"r", "f", "b", "f", "f", "l", "l", "f", "f", "f", "f", "f", "r", "f", "l", "f", "f", "f", "f", "f", "f", "l", "f", "f", "f"}
+    String[][] DIRECTIONS = { {"f", "b", "r", "l", "f", "f", "r", "r", "f", "f", "f", "f", "f", "f", "f", "f" },
+                              {"b", "f", "f", "l", "r", "f", "f", "f", "l", "l" },
+                              {"r", "f", "b", "f", "f", "l", "l", "f", "f", "f", "f", "f", "r", "f", "l", "f", "f", "f", "f", "f", "f", "l", "f", "f", "f"}
     };
 
-    String[][] ORIENTATIONS = {{"S", "N" },
+    String[][] ORIENTATIONS = {{"S", "N"},
             {"S", "E", "W" },
             {"N", "N", "S" }
     };
@@ -29,18 +29,46 @@ public class AnimalTest {
     };
 
     @Test
-    public void testMap() {
-        for (int t = 0; t < MAPS.length; t++) {
-            MoveDirection[] directions = OptionsParser.parse(DIRECTIONS[t]);
-            IWorldMap map = MAPS[t];
-            IEngine engine = new SimulationEngine(directions, map, POSITIONS[t]);
-            engine.run();
-            int i = 0;
-            for (Animal animal : ((RectangularMap) map).getAnimals()) {
-                assertTrue(animal.toString() == ORIENTATIONS[t][i]);
-                assertTrue(animal.isAt(FINISH_POSITIONS[t][i]));
-            }
+    public void testMap1() {
+        MoveDirection[] directions = OptionsParser.parse(DIRECTIONS[0]);
+        IWorldMap map = MAPS[0];
+        IEngine engine = new SimulationEngine(directions, map, POSITIONS[0]);
+        engine.run();
+        int i = 0;
+        for (Animal animal : ((RectangularMap) map).getAnimals()) {
+            assertEquals(animal.toString(), ORIENTATIONS[0][i]);
+            assertTrue(animal.isAt(FINISH_POSITIONS[0][i]));
+            i++;
         }
     }
+
+    @Test
+    public void testMap2() {
+        MoveDirection[] directions = OptionsParser.parse(DIRECTIONS[1]);
+        IWorldMap map = MAPS[1];
+        IEngine engine = new SimulationEngine(directions, map, POSITIONS[1]);
+        engine.run();
+        int i = 0;
+        for (Animal animal : ((RectangularMap) map).getAnimals()) {
+            assertEquals(animal.toString(), ORIENTATIONS[1][i]);
+            assertTrue(animal.isAt(FINISH_POSITIONS[1][i]));
+            i++;
+        }
+    }
+
+    @Test
+    public void testMap3() {
+        MoveDirection[] directions = OptionsParser.parse(DIRECTIONS[2]);
+        IWorldMap map = MAPS[2];
+        IEngine engine = new SimulationEngine(directions, map, POSITIONS[2]);
+        engine.run();
+        int i = 0;
+        for (Animal animal : ((RectangularMap) map).getAnimals()) {
+            assertEquals(animal.toString(), ORIENTATIONS[2][i]);
+            assertTrue(animal.isAt(FINISH_POSITIONS[2][i]));
+            i++;
+        }
+    }
+
 }
 

@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="95000764-fd33-4ef2-a275-ad34588e3952" name="Changes" comment="lab4 first version">
+    <list default="true" id="95000764-fd33-4ef2-a275-ad34588e3952" name="Changes" comment="lab4 first version fixes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/agh/ics/oop/AnimalTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/agh/ics/oop/AnimalTest.java" afterDir="false" />
     </list>
@@ -161,7 +161,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="Vector2dTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="AnimalTest.testMap1" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -174,7 +174,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;agh.ics.oop.Vector2dTest&quot;" />
+            <option value="&quot;agh.ics.oop.AnimalTest.testMap1&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -186,19 +186,19 @@
     </configuration>
     <list>
       <item itemvalue="Application.World" />
+      <item itemvalue="Gradle.AnimalTest.testMap1" />
       <item itemvalue="Gradle.AnimalTest" />
       <item itemvalue="Gradle.AnimalTest.testBadMap" />
       <item itemvalue="Gradle.AnimalTest.testBadString" />
       <item itemvalue="Gradle.AnimalTest.testBasic" />
-      <item itemvalue="Gradle.Vector2dTest" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.AnimalTest" />
+        <item itemvalue="Gradle.AnimalTest.testMap1" />
         <item itemvalue="Gradle.AnimalTest.testBadMap" />
         <item itemvalue="Gradle.AnimalTest.testBadString" />
         <item itemvalue="Gradle.AnimalTest.testBasic" />
-        <item itemvalue="Gradle.Vector2dTest" />
       </list>
     </recent_temporary>
   </component>
@@ -302,7 +302,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667162078791</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="lab4 first version fixes">
+      <created>1667162416501</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1667162416501</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -330,7 +337,8 @@
     <MESSAGE value="lab3 final fixes and finished for sure" />
     <MESSAGE value="lab4 middle steps" />
     <MESSAGE value="lab4 first version" />
-    <option name="LAST_COMMIT_MESSAGE" value="lab4 first version" />
+    <MESSAGE value="lab4 first version fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="lab4 first version fixes" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
