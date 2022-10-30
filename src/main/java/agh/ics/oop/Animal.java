@@ -8,10 +8,49 @@ package agh.ics.oop;
 
 public class Animal {
     private MapDirection orientation = MapDirection.NORTH;
-    private Vector2d position = new Vector2d(2, 2) {
-    };
+    private Vector2d position;
+    private IWorldMap map;
+
+    public Vector2d getPosition() {
+        return position;
+    }
+
+    public MapDirection getOrientation() {
+        return orientation;
+    }
+
+    public void setOrientation(MapDirection orientation) {
+        this.orientation = orientation;
+    }
+
+    public void setPosition(Vector2d position) {
+        this.position = position;
+    }
+
+    public IWorldMap getMap() {
+        return map;
+    }
+
+    public void setMap(IWorldMap map) {
+        this.map = map;
+    }
+
+    public Animal(IWorldMap map) {
+        this.map = map;
+        this.position = new Vector2d(0, 0);
+    }
+
+    public Animal(IWorldMap map, Vector2d initialPosition) {
+        this.map = map;
+        this.position = initialPosition;
+    }
     public String toString() {
-        return position.toString() + ", " + orientation.toString();
+        return switch(orientation) {
+            case NORTH -> "N";
+            case EAST -> "E";
+            case WEST -> "W";
+            case SOUTH -> "S";
+        };
     }
     public boolean isAt(Vector2d position) {
         return this.position.equals(position);
@@ -26,12 +65,12 @@ public class Animal {
                     orientation = orientation.previous();
                     break;
                 case FORWARD:
-                    if (position.add(orientation.toUnitVector()).precedes(new Vector2d(4, 4)) && position.add(orientation.toUnitVector()).follows(new Vector2d(0, 0))) {
+                    if (map.canMoveTo(position.add(orientation.toUnitVector()))) {
                         position = position.add(orientation.toUnitVector());
                     }
                     break;
                 case BACKWARD:
-                    if (position.subtract(orientation.toUnitVector()).follows(new Vector2d(0, 0)) && position.subtract(orientation.toUnitVector()).precedes(new Vector2d(4, 4))) {
+                    if (map.canMoveTo(position.subtract(orientation.toUnitVector()))) {
                         position = position.subtract(orientation.toUnitVector());
                     }
                     break;
