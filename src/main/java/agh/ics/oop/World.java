@@ -1,9 +1,6 @@
 package agh.ics.oop;
-import java.net.SocketOption;
-import java.sql.SQLOutput;
 
 import static java.lang.System.out;
-import static java.lang.System.setOut;
 
 public class World {
     static Direction[] change(String[] args) {

@@ -23,10 +23,6 @@ public class Animal {
         this.orientation = orientation;
     }
 
-    public void setPosition(Vector2d position) {
-        this.position = position;
-    }
-
     public IWorldMap getMap() {
         return map;
     }

@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class AnimalTest {
+public class AnimalMapTest {
 
     IWorldMap[] MAPS = {new RectangularMap(10, 5), new RectangularMap(5, 5), new RectangularMap(8, 6)};
 
