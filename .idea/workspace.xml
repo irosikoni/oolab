@@ -5,9 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="95000764-fd33-4ef2-a275-ad34588e3952" name="Changes" comment="lab4 first version fixes">
-      <change afterPath="$PROJECT_DIR$/src/main/java/agh/ics/oop/Grass.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/agh/ics/oop/GrassField.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/agh/ics/oop/AnimalTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/agh/ics/oop/AnimalTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,6 +17,16 @@
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
     </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <projects_view />
+      </state>
+    </system>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -53,7 +62,7 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.fonts.default&quot;
   }
 }</component>
-  <component name="RunManager" selected="Gradle.AnimalTest">
+  <component name="RunManager" selected="Gradle.AnimalMapTest">
     <configuration name="World" type="Application" factoryName="Application">
       <option name="ALTERNATIVE_JRE_PATH" value="$USER_HOME$/.jdks/openjdk-18.0.1.1" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -69,6 +78,29 @@
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
+    </configuration>
+    <configuration name="AnimalMapTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;agh.ics.oop.AnimalMapTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
     </configuration>
     <configuration name="AnimalTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
@@ -139,29 +171,6 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="AnimalTest.testBasic" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;agh.ics.oop.AnimalTest.testBasic&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
     <configuration name="AnimalTest.testMap1" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -187,19 +196,19 @@
     </configuration>
     <list>
       <item itemvalue="Application.World" />
+      <item itemvalue="Gradle.AnimalMapTest" />
       <item itemvalue="Gradle.AnimalTest.testMap1" />
       <item itemvalue="Gradle.AnimalTest" />
       <item itemvalue="Gradle.AnimalTest.testBadMap" />
       <item itemvalue="Gradle.AnimalTest.testBadString" />
-      <item itemvalue="Gradle.AnimalTest.testBasic" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.AnimalMapTest" />
         <item itemvalue="Gradle.AnimalTest" />
         <item itemvalue="Gradle.AnimalTest.testMap1" />
         <item itemvalue="Gradle.AnimalTest.testBadMap" />
         <item itemvalue="Gradle.AnimalTest.testBadString" />
-        <item itemvalue="Gradle.AnimalTest.testBasic" />
       </list>
     </recent_temporary>
   </component>
@@ -310,12 +319,12 @@
       <option name="project" value="LOCAL" />
       <updated>1667162416501</updated>
     </task>
-    <task id="LOCAL-00015" summary="lab4 first version fixes">
-      <created>1667163653150</created>
+    <task id="LOCAL-00015" summary="lab4 finished">
+      <created>1667322739546</created>
       <option name="number" value="00015" />
       <option name="presentableId" value="LOCAL-00015" />
       <option name="project" value="LOCAL" />
-      <updated>1667163653150</updated>
+      <updated>1667322739546</updated>
     </task>
     <option name="localTasksCounter" value="16" />
     <servers />
@@ -346,7 +355,9 @@
     <MESSAGE value="lab4 middle steps" />
     <MESSAGE value="lab4 first version" />
     <MESSAGE value="lab4 first version fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="lab4 first version fixes" />
+    <MESSAGE value="lab5 started" />
+    <MESSAGE value="lab4 finished" />
+    <option name="LAST_COMMIT_MESSAGE" value="lab4 finished" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

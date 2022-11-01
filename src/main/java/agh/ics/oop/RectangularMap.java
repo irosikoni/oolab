@@ -2,7 +2,6 @@ package agh.ics.oop;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 public class RectangularMap  implements IWorldMap{
     private Vector2d lowerLeft;
@@ -12,10 +11,6 @@ public class RectangularMap  implements IWorldMap{
 
     public List<Animal> getAnimals() {
         return animals;
-    }
-
-    public void setAnimals(List<Animal> animals) {
-        this.animals = animals;
     }
 
     public RectangularMap(int width, int height) {
