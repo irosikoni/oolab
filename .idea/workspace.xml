@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="95000764-fd33-4ef2-a275-ad34588e3952" name="Changes" comment="lab4 first version fixes">
+    <list default="true" id="95000764-fd33-4ef2-a275-ad34588e3952" name="Changes" comment="merge master to lab5">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/agh/ics/oop/AnimalTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/agh/ics/oop/AnimalTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/agh/ics/oop/Grass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/agh/ics/oop/Grass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/agh/ics/oop/GrassField.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/agh/ics/oop/GrassField.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -326,7 +327,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667322739546</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="merge master to lab5">
+      <created>1667323685095</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1667323685095</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -357,7 +365,8 @@
     <MESSAGE value="lab4 first version fixes" />
     <MESSAGE value="lab5 started" />
     <MESSAGE value="lab4 finished" />
-    <option name="LAST_COMMIT_MESSAGE" value="lab4 finished" />
+    <MESSAGE value="merge master to lab5" />
+    <option name="LAST_COMMIT_MESSAGE" value="merge master to lab5" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
