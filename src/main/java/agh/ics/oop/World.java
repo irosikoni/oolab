@@ -40,10 +40,6 @@ public class World {
         IEngine engine = new SimulationEngine(directions, map, positions);
         engine.run();
         MapVisualizer mapVisualizer = new MapVisualizer(map);
-        out.println(mapVisualizer.draw(new Vector2d(-20, -20), new Vector2d(20, 20)));
-//        System.out.println(map);
-
-
-
+        System.out.println(map);
     }
 }
