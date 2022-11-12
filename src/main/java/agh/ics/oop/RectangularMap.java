@@ -1,11 +1,6 @@
 package agh.ics.oop;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class RectangularMap extends AbstractWorldMap {
-
-    private List<Animal> animals = new ArrayList<>();
 
     public RectangularMap(int width, int height) {
         this.lowerLeft = new Vector2d(0, 0);
@@ -20,10 +15,6 @@ public class RectangularMap extends AbstractWorldMap {
     @Override
     public Vector2d getUpperRight() {
         return upperRight;
-    }
-
-    public List<Animal> getAnimals() {
-        return animals;
     }
 
     @Override

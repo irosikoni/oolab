@@ -6,10 +6,15 @@ package agh.ics.oop;
 // i sprawdzaniu jej przed ruchem zwierzęcia.
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Animal {
     private MapDirection orientation = MapDirection.NORTH;
     private Vector2d position;
     private IWorldMap map;
+
+    private List<IPositionChangeObserver> observers = new ArrayList<IPositionChangeObserver>();
 
     public Vector2d getPosition() {
         return position;
@@ -62,15 +67,33 @@ public class Animal {
                     break;
                 case FORWARD:
                     if (map.canMoveTo(position.add(orientation.toUnitVector()))) {
-                        position = position.add(orientation.toUnitVector());
+                        Vector2d newPosition = position.add(orientation.toUnitVector());
+                        this.positionChanged(position, newPosition);
+                        position = newPosition;
                     }
                     break;
                 case BACKWARD:
                     if (map.canMoveTo(position.subtract(orientation.toUnitVector()))) {
-                        position = position.subtract(orientation.toUnitVector());
+                        Vector2d newPosition = position.subtract(orientation.toUnitVector());
+                        this.positionChanged(position, newPosition);
+                        position = newPosition;
                     }
                     break;
             }
+        }
+    }
+
+    void addObserver(IPositionChangeObserver observer) {
+        observers.add(observer);
+    }
+
+    void removeObserver(IPositionChangeObserver observer) {
+        observers.remove(observer);
+    }
+
+    void positionChanged(Vector2d oldPosition, Vector2d newPosition) {
+        for (IPositionChangeObserver o : observers) {
+            o.positionChanged(oldPosition, newPosition);
         }
     }
 
