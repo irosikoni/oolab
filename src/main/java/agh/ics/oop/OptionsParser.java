@@ -23,7 +23,7 @@ public class OptionsParser {
                     i++;
                     break;
                 default:
-                    continue;
+                    throw new IllegalArgumentException(dir + " is not legal move specification");
             }
         }
         return directions;

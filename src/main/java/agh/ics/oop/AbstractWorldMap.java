@@ -49,7 +49,9 @@ abstract class AbstractWorldMap implements IWorldMap, IPositionChangeObserver {
             animals.put(animalPosition, animal);
             return true;
         }
-        return false;
+        else {
+            throw new IllegalArgumentException(animalPosition.toString() + "is not empty");
+        }
     }
 
     @Override
