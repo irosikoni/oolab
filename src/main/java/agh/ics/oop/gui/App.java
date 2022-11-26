@@ -2,9 +2,12 @@ package agh.ics.oop.gui;
 
 import agh.ics.oop.*;
 import javafx.application.Application;
+import javafx.geometry.HPos;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.RowConstraints;
 import javafx.stage.Stage;
 
 public class App extends Application{
@@ -27,24 +30,57 @@ public class App extends Application{
             Vector2d upperRight = ((GrassField) map).getUpperRight();
 
             GridPane gridPane = new GridPane();
+
+
+            int lx = lowerLeft.x;
+            int ly = lowerLeft.y;
+            int ry = upperRight.y;
+
+            Label label1 = new Label("y/x");
+            gridPane.add(label1, 0, 0, 1, 1);
+            GridPane.setHalignment(label1, HPos.CENTER);
+            gridPane.getColumnConstraints().add(new ColumnConstraints(30));
+            gridPane.getRowConstraints().add(new RowConstraints(30));
+
+            for (int p = 1; p<=(upperRight.x-lowerLeft.x + 1); p++) {
+                Label label = new Label(Integer.toString(lx));
+                gridPane.add(label, p, 0, 1, 1);
+                GridPane.setHalignment(label, HPos.CENTER);
+                lx++;
+                gridPane.getColumnConstraints().add(new ColumnConstraints(30));
+            }
+            lx = lowerLeft.x;
+            for (int q = 1; q<=(upperRight.y-lowerLeft.y + 1); q++) {
+                Label label = new Label(Integer.toString(ry));
+                gridPane.add(label, 0, q, 1, 1);
+//                gridPane.getColumnConstraints().add(new ColumnConstraints(upperRight.x-lowerLeft.x + 1));
+//                gridPane.getRowConstraints().add(new RowConstraints(upperRight.y-lowerLeft.y + 1));
+                GridPane.setHalignment(label, HPos.CENTER);
+                ry--;
+                gridPane.getRowConstraints().add(new RowConstraints(30));
+            }
+            ry = upperRight.y;
+
+            int ox = 1;
+            int oy = 1;
+
+            for (int j=upperRight.y; j>=lowerLeft.y; j--) {
+                for (int i = lowerLeft.x; i <= upperRight.x; i++) {
+                    String objectRepresentation = "";
+                    if (map.objectAt(new Vector2d(i, j)) != null) {
+                        objectRepresentation = map.objectAt(new Vector2d(i, j)).toString();
+                    }
+                    Label label = new Label(objectRepresentation);
+                    gridPane.add(label, ox, oy, 1, 1);
+
+                    GridPane.setHalignment(label, HPos.CENTER);
+                    ox++;
+                }
+                oy++;
+                ox = 1;
+            }
             gridPane.setGridLinesVisible(true);
-
-            for (int x=lowerLeft.y; x<=upperRight.y)
-
-
-//            Label label1 = new Label("*");
-//            Label label2 = new Label("*");
-//            Label label3 = new Label("*");
-//            Label label4 = new Label("trawa");
-//            Label label5 = new Label("Zwierzak");
-
-//            gridPane.add(label1, 0, 0);
-//            gridPane.add(label2, 1, 0, 2, 2);
-//            gridPane.add(label3, 2, 0, 1, 1);
-//            gridPane.add(label4, 0, 1, 1, 1);
-//            gridPane.add(label5, 1, 1, 1, 1);
             Scene scene = new Scene(gridPane, 400, 400);
-            primaryStage.show();
             primaryStage.setScene(scene);
             primaryStage.show();
         } catch (IllegalArgumentException ex) {

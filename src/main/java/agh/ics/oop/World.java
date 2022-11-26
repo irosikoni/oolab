@@ -39,18 +39,18 @@ public class World {
     public static void main(String[] args) throws Exception {
         Application.launch(App.class, args);
 
-//        try {
-//            MoveDirection[] directions = OptionsParser.parse(args);
-//            IWorldMap map = new GrassField(10);
-//            Vector2d[] positions = {new Vector2d(2, 2), new Vector2d(2, 4)};
-//            IEngine engine = new SimulationEngine(directions, map, positions);
-//            engine.run();
-//            MapVisualizer mapVisualizer = new MapVisualizer(map);
-//            Application.launch(App.class, args);
-//            System.out.println(map);
-//        } catch (IllegalArgumentException ex) {
-//            System.out.println(ex);
-//
-//        }
+        try {
+            MoveDirection[] directions = OptionsParser.parse(args);
+            IWorldMap map = new GrassField(10);
+            Vector2d[] positions = {new Vector2d(2, 2), new Vector2d(2, 4)};
+            IEngine engine = new SimulationEngine(directions, map, positions);
+            engine.run();
+            MapVisualizer mapVisualizer = new MapVisualizer(map);
+            Application.launch(App.class, args);
+            System.out.println(map);
+        } catch (IllegalArgumentException ex) {
+            System.out.println(ex);
+
+        }
     }
 }
