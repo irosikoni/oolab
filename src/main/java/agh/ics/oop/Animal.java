@@ -9,13 +9,13 @@ package agh.ics.oop;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Animal {
+public class Animal implements IMapElement{
     private MapDirection orientation = MapDirection.NORTH;
     private Vector2d position;
     private IWorldMap map;
 
     private List<IPositionChangeObserver> observers = new ArrayList<IPositionChangeObserver>();
-
+    @Override
     public Vector2d getPosition() {
         return position;
     }
@@ -45,6 +45,7 @@ public class Animal {
         this.map = map;
         this.position = initialPosition;
     }
+    @Override
     public String toString() {
         return switch(orientation) {
             case NORTH -> "N";

@@ -1,15 +1,15 @@
 package agh.ics.oop;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-abstract class AbstractWorldMap implements IWorldMap, IPositionChangeObserver {
+public abstract class AbstractWorldMap implements IWorldMap, IPositionChangeObserver {
 
     protected Vector2d lowerLeft;
     protected Vector2d upperRight;
     protected Map<Vector2d, Animal> animals = new HashMap<>();
+    protected MapBoundary mapB = new MapBoundary();
 
     public List<Animal> getAnimals() {
         return animals.values().stream().toList();
@@ -47,16 +47,19 @@ abstract class AbstractWorldMap implements IWorldMap, IPositionChangeObserver {
 
         if (canMoveTo(animalPosition)) {
             animals.put(animalPosition, animal);
+            mapB.addVector(animalPosition);
             return true;
         }
         else {
             throw new IllegalArgumentException(animalPosition.toString() + "is not empty");
+
         }
     }
 
     @Override
     public void positionChanged(Vector2d oldPosition, Vector2d newPosition) {
         if(!newPosition.equals(oldPosition)) {
+            mapB.positionChanged(oldPosition, newPosition);
             Animal a = animals.remove(oldPosition);
             animals.put(newPosition, a);
         }

@@ -55,12 +55,19 @@ public class RectangularMapTest {
     public void testPlace() {
         Vector2d pos = new Vector2d(2, 2);
         Animal a1 = new Animal(rectangularMap, pos);
+        Animal a2 = new Animal(rectangularMap, pos);
         rectangularMap.place(a1);
 
         assertTrue(
                 !rectangularMap.canMoveTo(pos)
                         && rectangularMap.isOccupied(pos)
                         && a1.equals(rectangularMap.objectAt(pos)));
+
+        try {
+            rectangularMap.place(a2);
+        } catch (IllegalArgumentException ex) {
+            assertEquals(pos.toString() + "is not empty", ex.getMessage());
+        }
     }
 
 }

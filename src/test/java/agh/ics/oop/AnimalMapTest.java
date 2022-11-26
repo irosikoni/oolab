@@ -14,7 +14,9 @@ public class AnimalMapTest {
     };
     String[][] DIRECTIONS = { {"f", "b", "r", "l", "f", "f", "r", "r", "f", "f", "f", "f", "f", "f", "f", "f" },
                               {"b", "f", "f", "l", "r", "f", "f", "f", "l", "l" },
-                              {"r", "f", "b", "f", "f", "l", "l", "f", "f", "f", "f", "f", "r", "f", "l", "f", "f", "f", "f", "f", "f", "l", "f", "f", "f"}
+                              {"r", "f", "b", "f", "f", "l", "l", "f", "f", "f", "f", "f", "r", "f", "l", "f", "f", "f", "f", "f", "f", "l", "f", "f", "f"},
+                              {"fajny napis", "b", "r", "l", "f", "f", "r", "r", "f", "f", "f", "f", "f", "f", "f", "f" },
+                              {"b", "f", "bardzo fajny napis", "l", "r", "f", "f", "f", "l", "l" }
     };
 
     String[][] ORIENTATIONS = {{"S", "N"},
@@ -67,6 +69,23 @@ public class AnimalMapTest {
             assertEquals(animal.toString(), ORIENTATIONS[2][i]);
             assertTrue(animal.isAt(FINISH_POSITIONS[2][i]));
             i++;
+        }
+    }
+
+    @Test
+    public void testMap4() {
+        try {
+            MoveDirection[] directions = OptionsParser.parse(DIRECTIONS[3]);
+        } catch (IllegalArgumentException ex) {
+            assertEquals(DIRECTIONS[3][0] + " is not legal move specification", ex.getMessage());
+        }
+    }
+    @Test
+    public void testMap5() {
+        try {
+            MoveDirection[] directions = OptionsParser.parse(DIRECTIONS[4]);
+        } catch (IllegalArgumentException ex) {
+            assertEquals(DIRECTIONS[4][2] + " is not legal move specification", ex.getMessage());
         }
     }
 

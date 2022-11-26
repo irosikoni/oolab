@@ -65,19 +65,25 @@ public class GrassFieldTest {
                 new Vector2d(max, max),
                 new Vector2d(max, min),
                 new Vector2d(min, max),
-                new Vector2d(min, min)
+                new Vector2d(min, min),
         };
 
         Animal[] animals = new Animal[]{
                 new Animal(grassField, positions[0]),
                 new Animal(grassField, positions[1]),
                 new Animal(grassField, positions[2]),
+                new Animal(grassField, positions[3]),
                 new Animal(grassField, positions[3])
         };
 
-        for (Animal a : animals) {
-            grassField.place(a);
+        try {
+            for (Animal a : animals) {
+                grassField.place(a);
+            }
+        } catch (IllegalArgumentException ex) {
+            assertEquals(positions[3].toString() + "is not empty", ex.getMessage());
         }
+
 
         for (Vector2d pos : positions) {
             assertTrue(

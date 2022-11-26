@@ -5,8 +5,7 @@ import java.util.*;
 public class GrassField extends AbstractWorldMap {
 
     protected Map<Vector2d, Grass> grass = new HashMap<>();
-
-    GrassField(int grassLimit) {
+    public GrassField(int grassLimit) {
         placeGrass(grassLimit);
     }
 
@@ -20,6 +19,7 @@ public class GrassField extends AbstractWorldMap {
             Vector2d grassPosition = new Vector2d(randX, randY);
             if (objectAt(grassPosition) == null) {
                 grass.put(grassPosition, new Grass(grassPosition));
+                mapB.addVector(grassPosition);
             }
         }
     }
@@ -40,22 +40,12 @@ public class GrassField extends AbstractWorldMap {
 
     @Override
     public Vector2d getLowerLeft() {
-        lowerLeft = new Vector2d(Integer.MAX_VALUE, Integer.MAX_VALUE);
-
-        animals.forEach((key, value) -> lowerLeft = lowerLeft.lowerLeft(key));
-        grass.forEach((key, value) -> lowerLeft = lowerLeft.lowerLeft(key));
-
-        return lowerLeft;
+        return mapB.setX.first().lowerLeft(mapB.setY.first());
     }
 
     @Override
     public Vector2d getUpperRight() {
-        upperRight = new Vector2d(0, 0);
-
-        animals.forEach((key, value) -> upperRight = upperRight.upperRight(key));
-        grass.forEach((key, value) -> upperRight = upperRight.upperRight(key));
-
-        return upperRight;
+        return mapB.setX.last().upperRight(mapB.setY.last());
     }
 
     public List<Grass> getGrass() {
