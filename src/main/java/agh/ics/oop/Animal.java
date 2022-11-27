@@ -6,10 +6,14 @@ package agh.ics.oop;
 // i sprawdzaniu jej przed ruchem zwierzęcia.
 
 
+import javafx.scene.image.Image;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Animal implements IMapElement{
+public class Animal implements IMapElement, IPositionChangeObserver{
     private MapDirection orientation = MapDirection.NORTH;
     private Vector2d position;
     private IWorldMap map;
@@ -92,10 +96,20 @@ public class Animal implements IMapElement{
         observers.remove(observer);
     }
 
-    void positionChanged(Vector2d oldPosition, Vector2d newPosition) {
+    @Override
+    public void positionChanged(Vector2d oldPosition, Vector2d newPosition) {
         for (IPositionChangeObserver o : observers) {
             o.positionChanged(oldPosition, newPosition);
         }
+    }
+    @Override
+    public Image getImage() throws FileNotFoundException {
+        return switch (orientation) {
+            case NORTH -> new Image(new FileInputStream("src/main/resources/up.png"));
+            case SOUTH -> new Image(new FileInputStream("src/main/resources/down.png"));
+            case WEST -> new Image(new FileInputStream("src/main/resources/left.png"));
+            case EAST -> new Image(new FileInputStream("src/main/resources/right.png"));
+        };
     }
 
 
