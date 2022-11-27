@@ -13,9 +13,9 @@ import javafx.stage.Stage;
 import java.io.FileNotFoundException;
 
 public class App extends Application{
-    private IEngine engine;
+    private SimulationEngine engine;
     private IWorldMap map;
-    private GridPane gridPane;
+    private GridPane gridPane = new GridPane();
     @Override
     public void init(){
         MoveDirection[] directions = OptionsParser.parse(this.getParameters().getRaw().toArray(new String[0]));
@@ -68,8 +68,8 @@ public class App extends Application{
             for (int i = lowerLeft.x; i <= upperRight.x; i++) {
                 if (map.objectAt(new Vector2d(i, j)) != null) {
                     GuiElementBox newE = new GuiElementBox();
-
-                    gridPane.add(newE.GuiElementBox((IMapElement) (map.objectAt(new Vector2d(i, j)))), ox, oy, 1, 1);
+                    IMapElement o = (IMapElement) map.objectAt(new Vector2d(i, j));
+                    gridPane.add(newE.GuiElementBox(o), ox, oy, 1, 1);
                 }
                 else{
                     Label label = new Label("");
@@ -82,6 +82,7 @@ public class App extends Application{
             oy++;
             ox = 1;
         }
+        gridPane.setGridLinesVisible(false);
         gridPane.setGridLinesVisible(true);
     }
 
@@ -89,15 +90,14 @@ public class App extends Application{
     public void start(Stage primaryStage) throws Exception{
 
         try {
-
-            engine.run();
-            gridPane = new GridPane();
-            changeMap(gridPane, map);
-
-
+            Thread thread = new Thread(engine);
             Scene scene = new Scene(gridPane, 600, 600);
             primaryStage.setScene(scene);
             primaryStage.show();
+            thread.start();
+//            engine.run();
+            changeMap(gridPane, map);
+
         } catch (IllegalArgumentException ex) {
             System.out.println(ex);
 

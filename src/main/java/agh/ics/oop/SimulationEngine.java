@@ -13,8 +13,14 @@ public class SimulationEngine implements IEngine, Runnable {
     private IWorldMap map;
     private Vector2d[] startPositions;
     private App observer;
-    private int moveDelay = 300;
+    private int moveDelay = 800;
 
+
+    public SimulationEngine(MoveDirection[] moves, IWorldMap map, Vector2d[] startPositions) {
+        this.map = map;
+        this.moves = moves;
+        this.startPositions = startPositions;
+    }
     public SimulationEngine(MoveDirection[] moves, IWorldMap map, Vector2d[] startPositions, App observer) {
         this.map = map;
         this.moves = moves;
@@ -41,13 +47,15 @@ public class SimulationEngine implements IEngine, Runnable {
             Platform.runLater(() -> {
                 try {
                     observer.renderMap();
-                    Thread.sleep(moveDelay);
                 } catch (FileNotFoundException e) {
-                    throw new RuntimeException(e);
-                } catch (InterruptedException e) {
                     throw new RuntimeException(e);
                 }
             });
+            try {
+                Thread.sleep(moveDelay);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
 
 
         }
