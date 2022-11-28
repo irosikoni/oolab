@@ -4,24 +4,24 @@ import agh.ics.oop.*;
 import javafx.application.Application;
 import javafx.geometry.HPos;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.ColumnConstraints;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.RowConstraints;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
 import java.io.FileNotFoundException;
 
 public class App extends Application{
-    private SimulationEngine engine;
     private IWorldMap map;
+    private Vector2d[] positions;
     private GridPane gridPane = new GridPane();
+    private ThrededSimulationEngine tEngine;
     @Override
     public void init(){
-        MoveDirection[] directions = OptionsParser.parse(this.getParameters().getRaw().toArray(new String[0]));
         this.map = new GrassField(10);
-        Vector2d[] positions = {new Vector2d(2, 2), new Vector2d(2, 4)};
-        this.engine = new SimulationEngine(directions, map, positions, this);
+        this.positions = new Vector2d[]{new Vector2d(2, 2), new Vector2d(2, 4)};
+        this.tEngine = new ThrededSimulationEngine(map, positions, this);
     }
 
     public void renderMap() throws FileNotFoundException {
@@ -90,13 +90,19 @@ public class App extends Application{
     public void start(Stage primaryStage) throws Exception{
 
         try {
-            Thread thread = new Thread(engine);
-            Scene scene = new Scene(gridPane, 600, 600);
+            TextField textField = new TextField();
+            Button startBtn = new Button("Start");
+            VBox vbox = new VBox(textField, startBtn);
+            HBox hbox = new HBox(gridPane, vbox);
+            Scene scene = new Scene(hbox, 600, 600);
             primaryStage.setScene(scene);
             primaryStage.show();
-            thread.start();
-//            engine.run();
-            changeMap(gridPane, map);
+            startBtn.setOnAction(actionEvent -> {
+                Thread newThread = new Thread(tEngine);
+                MoveDirection[] directions = OptionsParser.parse(textField.getText().split(" "));
+                tEngine.setMoves(directions);
+                newThread.start();
+            });
 
         } catch (IllegalArgumentException ex) {
             System.out.println(ex);
